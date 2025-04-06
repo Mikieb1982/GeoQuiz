@@ -1,4 +1,9 @@
-Here is the complete code for the `sidebar.tsx` file:
+To address the `ReferenceError: window is not defined` issue during server-side prerendering, you should ensure that any code referencing the `window` object is only run on the client-side. Here are the steps to fix the issue in the `src/components/ui/sidebar.tsx` file:
+
+1. Identify the code that references the `window` object.
+2. Wrap the code block that references the `window` object with a check to ensure it only runs in the browser environment.
+
+Here's the updated code for the `src/components/ui/sidebar.tsx` file:
 
 ```tsx
 "use client"
@@ -87,7 +92,7 @@ const SidebarProvider = React.forwardRef<
         }
 
         // This sets the cookie to keep the sidebar state.
-        document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDAR_COOKIE_MAX_AGE}`
+        document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
       },
       [setOpenProp, open]
     )
@@ -528,23 +533,3 @@ const sidebarMenuButtonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-)
-
-const SidebarMenuButton = React.forwardRef<
-  HTMLButtonElement,
-  React.ComponentProps<"button"> & {
-    asChild?: boolean
-    isActive?: boolean
-    tooltip?: string | React.ComponentProps<typeof TooltipContent>
-  } & VariantProps<typeof sidebarMenuButtonVariants>
->(
-  (
-    {
-      asChild = false,
-      isActive = false,
-      variant = "default",
-      size =
