@@ -1,4 +1,6 @@
-To address the `ReferenceError: window is not defined` issue during server-side prerendering, you should ensure that any code referencing the `window` object is only run on the client-side. Here are the steps to fix the issue in the `src/components/ui/sidebar.tsx` file:
+The error "ReferenceError: window is not defined" typically occurs when client-side code that references the browser's `window` object is executed on the server-side during prerendering. To fix this issue, you need to ensure that any code referencing `window` is only run on the client-side.
+
+Here are the steps to fix the issue in the `src/components/ui/sidebar.tsx` file and other relevant files:
 
 1. Identify the code that references the `window` object.
 2. Wrap the code block that references the `window` object with a check to ensure it only runs in the browser environment.
@@ -92,7 +94,9 @@ const SidebarProvider = React.forwardRef<
         }
 
         // This sets the cookie to keep the sidebar state.
-        document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
+        if (typeof document !== 'undefined') {
+          document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
+        }
       },
       [setOpenProp, open]
     )
@@ -528,8 +532,4 @@ const sidebarMenuButtonVariants = cva(
       },
       size: {
         default: "h-8 text-sm",
-        sm: "h-7 text-xs",
-        lg: "h-12 text-sm group-data-[collapsible=icon]:!p-0",
-      },
-    },
-    defaultVariants: {
+        sm: "
