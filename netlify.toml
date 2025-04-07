@@ -1,0 +1,7 @@
+ [build]
+  command = "pnpm run build"
+  publish = ".next"
+
+# Ensure the official Netlify plugin for Next.js is used
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
