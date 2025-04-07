@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic'; // Import dynamic
 import { useTranslation } from 'react-i18next';
 import { Language } from '../types';
 import Header from './Header';
 import Footer from './Footer';
-import Map from './Map';
+// import Map from './Map'; // Removed static import
 import QuizModal from './QuizModal';
 import BadgeModal from './BadgeModal';
 import BadgeCollection from './BadgeCollection';
@@ -15,25 +16,34 @@ import { useProximityDetection } from './ProximityDetector';
 import { quizzes } from '../data/quizzes';
 import '../i18n/i18n';
 
+// Dynamically import the Map component, disable SSR
+const Map = dynamic(
+  () => import('./Map'), // Path to your Map component
+  {
+    ssr: false, // This prevents the component from rendering on the server
+    loading: () => <div className="h-[70vh] w-full flex items-center justify-center"><p>Loading map...</p></div> // Optional: show a loading state
+  }
+);
+
 const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
   const { t, i18n } = useTranslation();
-  
+
   // Initialize language
   useEffect(() => {
     i18n.changeLanguage(language);
   }, [language, i18n]);
-  
+
   // Quiz management
-  const { 
-    activePoi, 
-    showQuiz, 
-    activateQuiz, 
-    closeQuiz, 
-    handleQuizComplete, 
-    completedQuizzes 
+  const {
+    activePoi,
+    showQuiz,
+    activateQuiz,
+    closeQuiz,
+    handleQuizComplete,
+    completedQuizzes
   } = useQuizManager();
-  
+
   // Badge management
   const {
     earnedBadges,
@@ -45,56 +55,57 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
     openBadgeCollection,
     closeBadgeCollection
   } = useBadgeManager();
-  
+
   // Proximity detection
   const { poisInRange } = useProximityDetection();
-  
+
   // Handle quiz completion
   const onQuizComplete = (poiId: string, score: number, perfect: boolean) => {
     handleQuizComplete(poiId, score, perfect);
-    
+
     // Award badge if perfect score
     if (perfect) {
       awardBadge(poiId);
     }
   };
-  
+
   // Get active quiz
-  const activeQuiz = activePoi 
+  const activeQuiz = activePoi
     ? quizzes.find(quiz => quiz.poiId === activePoi.id) || null
     : null;
-  
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <Header onOpenBadges={openBadgeCollection} badgeCount={earnedBadges.length} />
-      
+
       <main className="flex-grow">
         <div className="container mx-auto px-4 py-6">
           {/* Map Component */}
           <div className="mb-6 rounded-lg overflow-hidden shadow-lg">
-            <Map 
-              language={language} 
+            {/* Use the dynamically imported Map component (usage remains the same) */}
+            <Map
+              language={language}
               onPoiClick={(poi) => {
                 // Only activate quiz if user is in range
                 const isInRange = poisInRange.some(p => p.id === poi.id);
                 if (isInRange) {
                   activateQuiz(poi);
                 }
-              }} 
+              }}
             />
           </div>
-          
+
           {/* Main Content */}
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-2xl font-heading font-bold text-belzig-green-700 mb-4">
               {t('appName')}
             </h2>
             <p className="text-belzig-gray-700 mb-4">
-              {language === 'en' 
+              {language === 'en'
                 ? 'Explore Bad Belzig and discover its fascinating locations! Visit points of interest, answer quiz questions, and collect badges.'
                 : 'Erkunde Bad Belzig und entdecke seine faszinierenden Orte! Besuche Sehenswürdigkeiten, beantworte Quizfragen und sammle Abzeichen.'}
             </p>
-            
+
             {/* Stats */}
             <div className="mt-6 grid grid-cols-2 gap-4">
               <div className="bg-belzig-green-50 p-4 rounded-lg border border-belzig-green-200">
@@ -114,7 +125,7 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
                 </p>
               </div>
             </div>
-            
+
             {/* Badge Preview */}
             {earnedBadges.length > 0 && (
               <div className="mt-6">
@@ -124,7 +135,7 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
                 <div className="flex space-x-2 overflow-x-auto pb-2">
                   {/* Show last 3 earned badges */}
                   {earnedBadges.slice(-3).map(badgeId => (
-                    <img 
+                    <img
                       key={badgeId}
                       src={`/badges/${badgeId.replace('badge-', '')}.svg`}
                       alt=""
@@ -134,17 +145,17 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
                 </div>
               </div>
             )}
-            
+
             {children}
           </div>
         </div>
       </main>
-      
-      <Footer 
-        currentLanguage={language} 
-        onLanguageChange={setLanguage} 
+
+      <Footer
+        currentLanguage={language}
+        onLanguageChange={setLanguage}
       />
-      
+
       {/* Modals */}
       <QuizModal
         quiz={activeQuiz}
@@ -153,14 +164,14 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
         onClose={closeQuiz}
         onComplete={onQuizComplete}
       />
-      
+
       <BadgeModal
         badge={newBadge}
         language={language}
         isOpen={showBadgeModal}
         onClose={closeBadgeModal}
       />
-      
+
       {showBadgeCollection && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <BadgeCollection
