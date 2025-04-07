@@ -2,7 +2,8 @@ import { POI } from '../types';
 
 /**
  * Points of Interest (POIs) for Bad Belzig
- * * This file contains the data for the 10 POIs in Bad Belzig:
+ *
+ * This file contains the data for the 10 POIs in Bad Belzig:
  * 1. Burg Eisenhardt (Castle)
  * 2. SteinTherme (Thermal Bath)
  * 3. Marktplatz (Market Square)
@@ -18,13 +19,13 @@ import { POI } from '../types';
 export const pois: POI[] = [
   {
     id: 'burg-eisenhardt',
-    coordinates: {
-      latitude: 52.1417, // Corrected (approx)
-      longitude: 12.5915  // Corrected (approx)
+    coordinates: { // Using original coordinates for this test
+      latitude: 52.1416,
+      longitude: 12.5917
     },
     geofenceRadius: 50, // in meters
     names: {
-      en: 'Burg Eisenhardt (Castle)',
+      en: 'Burg Eisenhardt TEST NAME', // <<< Changed for test
       de: 'Burg Eisenhardt'
     },
     descriptions: {
@@ -36,9 +37,9 @@ export const pois: POI[] = [
   },
   {
     id: 'steintherme',
-    coordinates: {
-      latitude: 52.1371, // Corrected (approx)
-      longitude: 12.5966  // Corrected (approx)
+    coordinates: { // Using original coordinates for this test
+      latitude: 52.1372,
+      longitude: 12.5967
     },
     geofenceRadius: 50,
     names: {
@@ -54,9 +55,9 @@ export const pois: POI[] = [
   },
   {
     id: 'marktplatz',
-    coordinates: {
-      latitude: 52.1424, // Corrected (approx) - Center of Marktplatz
-      longitude: 12.5894  // Corrected (approx) - Center of Marktplatz
+    coordinates: { // Using original coordinates for this test
+      latitude: 52.1394,
+      longitude: 12.5928
     },
     geofenceRadius: 40,
     names: {
@@ -72,9 +73,9 @@ export const pois: POI[] = [
   },
   {
     id: 'rathaus',
-    coordinates: {
-      latitude: 52.1426, // Corrected (approx) - Specific building
-      longitude: 12.5896  // Corrected (approx) - Specific building
+    coordinates: { // Using original coordinates for this test
+      latitude: 52.1395,
+      longitude: 12.5930
     },
     geofenceRadius: 30,
     names: {
@@ -90,9 +91,9 @@ export const pois: POI[] = [
   },
   {
     id: 'st-marienkirche',
-    coordinates: {
-      latitude: 52.1429, // Corrected (approx)
-      longitude: 12.5890  // Corrected (approx)
+    coordinates: { // Using original coordinates for this test
+      latitude: 52.1399,
+      longitude: 12.5925
     },
     geofenceRadius: 40,
     names: {
@@ -108,10 +109,9 @@ export const pois: POI[] = [
   },
   {
     id: 'bricciuskapelle',
-    coordinates: {
-      // Note: This is on the castle grounds, very close to the castle coordinates
-      latitude: 52.1419, // Corrected (approx)
-      longitude: 12.5914  // Corrected (approx)
+    coordinates: { // Using original coordinates for this test
+      latitude: 52.1418,
+      longitude: 12.5915
     },
     geofenceRadius: 30,
     names: {
@@ -127,10 +127,9 @@ export const pois: POI[] = [
   },
   {
     id: 'heimatmuseum',
-    coordinates: {
-      // Note: Also on castle grounds, in the gatehouse (Torhaus)
-      latitude: 52.1415, // Corrected (approx) - Torhaus location
-      longitude: 12.5919  // Corrected (approx) - Torhaus location
+    coordinates: { // Using original coordinates for this test
+      latitude: 52.1415,
+      longitude: 12.5920
     },
     geofenceRadius: 30,
     names: {
@@ -146,9 +145,9 @@ export const pois: POI[] = [
   },
   {
     id: 'postmeilensaule',
-    coordinates: {
-      latitude: 52.1423, // Corrected (approx) - Near Marktplatz/Rathaus corner
-      longitude: 12.5897  // Corrected (approx) - Near Marktplatz/Rathaus corner
+    coordinates: { // Using original coordinates for this test
+      latitude: 52.1390,
+      longitude: 12.5935
     },
     geofenceRadius: 20,
     names: {
@@ -164,9 +163,9 @@ export const pois: POI[] = [
   },
   {
     id: 'flaming-bahnhof',
-    coordinates: {
-      latitude: 52.1481, // Corrected (approx)
-      longitude: 12.5863  // Corrected (approx)
+    coordinates: { // Using original coordinates for this test
+      latitude: 52.1342,
+      longitude: 12.5868
     },
     geofenceRadius: 50,
     names: {
@@ -182,9 +181,9 @@ export const pois: POI[] = [
   },
   {
     id: 'reissiger-haus',
-    coordinates: {
-      latitude: 52.1428, // Corrected (approx) - Specific building address
-      longitude: 12.5905  // Corrected (approx) - Specific building address
+    coordinates: { // Using original coordinates for this test
+      latitude: 52.1397,
+      longitude: 12.5940
     },
     geofenceRadius: 30,
     names: {
