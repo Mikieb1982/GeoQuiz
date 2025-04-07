@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic'; // Import dynamic
+import dynamic from 'next/dynamic'; // Make sure dynamic is imported
 import { useTranslation } from 'react-i18next';
 import { Language } from '../types';
-import Header from './Header';
-import Footer from './Footer';
-// import Map from './Map'; // Removed static import
+import Header from './Header'; // Your Header component
+import Footer from './Footer'; // Your Footer component
 import QuizModal from './QuizModal';
 import BadgeModal from './BadgeModal';
 import BadgeCollection from './BadgeCollection';
@@ -16,25 +15,24 @@ import { useProximityDetection } from './ProximityDetector';
 import { quizzes } from '../data/quizzes';
 import '../i18n/i18n';
 
-// Dynamically import the Map component, disable SSR
+// Your dynamic Map import should look something like this:
 const Map = dynamic(
-  () => import('./Map'), // Path to your Map component
+  () => import('./Map'),
   {
-    ssr: false, // This prevents the component from rendering on the server
-    loading: () => <div className="h-[70vh] w-full flex items-center justify-center"><p>Loading map...</p></div> // Optional: show a loading state
+    ssr: false,
+    loading: () => <div className="h-[70vh] w-full flex items-center justify-center bg-belzig-gray-100"><p>Loading map...</p></div>
   }
 );
 
 const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
+  // --- Your existing state and hooks ---
   const [language, setLanguage] = useState<Language>('en');
   const { t, i18n } = useTranslation();
 
-  // Initialize language
   useEffect(() => {
     i18n.changeLanguage(language);
   }, [language, i18n]);
 
-  // Quiz management
   const {
     activePoi,
     showQuiz,
@@ -44,7 +42,6 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
     completedQuizzes
   } = useQuizManager();
 
-  // Badge management
   const {
     earnedBadges,
     awardBadge,
@@ -56,107 +53,114 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
     closeBadgeCollection
   } = useBadgeManager();
 
-  // Proximity detection
   const { poisInRange } = useProximityDetection();
+  // --- End of your existing state and hooks ---
 
-  // Handle quiz completion
+  // --- Your existing functions ---
   const onQuizComplete = (poiId: string, score: number, perfect: boolean) => {
     handleQuizComplete(poiId, score, perfect);
-
-    // Award badge if perfect score
     if (perfect) {
       awardBadge(poiId);
     }
   };
 
-  // Get active quiz
   const activeQuiz = activePoi
     ? quizzes.find(quiz => quiz.poiId === activePoi.id) || null
     : null;
+  // --- End of your existing functions ---
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    // Apply base font, background, and font smoothing
+    <div className="flex flex-col min-h-screen bg-belzig-gray-50 font-sans antialiased">
+      {/* Pass props to Header */}
       <Header onOpenBadges={openBadgeCollection} badgeCount={earnedBadges.length} />
 
       <main className="flex-grow">
-        <div className="container mx-auto px-4 py-6">
-          {/* Map Component */}
-          <div className="mb-6 rounded-lg overflow-hidden shadow-lg">
-            {/* Use the dynamically imported Map component (usage remains the same) */}
-            <Map
-              language={language}
-              onPoiClick={(poi) => {
-                // Only activate quiz if user is in range
-                const isInRange = poisInRange.some(p => p.id === poi.id);
-                if (isInRange) {
-                  activateQuiz(poi);
-                }
-              }}
-            />
+        {/* Container with padding */}
+        <div className="container mx-auto px-4 py-6 md:py-8">
+
+          {/* Map Container with styling */}
+          <div className="mb-6 md:mb-8 rounded-xl overflow-hidden shadow-card">
+             <Map
+               language={language}
+               onPoiClick={(poi) => {
+                 const isInRange = poisInRange.some(p => p.id === poi.id);
+                 if (isInRange) {
+                   activateQuiz(poi);
+                 }
+               }}
+             />
           </div>
 
-          {/* Main Content */}
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-heading font-bold text-belzig-green-700 mb-4">
+          {/* Content Card styling */}
+          <div className="bg-white rounded-xl shadow-card p-6 md:p-8">
+            {/* Heading styling */}
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-belzig-gray-900 mb-4">
               {t('appName')}
             </h2>
-            <p className="text-belzig-gray-700 mb-4">
+            {/* Paragraph styling */}
+            <p className="text-belzig-gray-700 leading-relaxed mb-6">
               {language === 'en'
                 ? 'Explore Bad Belzig and discover its fascinating locations! Visit points of interest, answer quiz questions, and collect badges.'
                 : 'Erkunde Bad Belzig und entdecke seine faszinierenden Orte! Besuche Sehenswürdigkeiten, beantworte Quizfragen und sammle Abzeichen.'}
             </p>
 
-            {/* Stats */}
-            <div className="mt-6 grid grid-cols-2 gap-4">
+            {/* Stats Section styling */}
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {/* Stat Box styling */}
               <div className="bg-belzig-green-50 p-4 rounded-lg border border-belzig-green-200">
-                <h3 className="font-semibold text-belzig-green-700">
+                <h3 className="font-semibold text-belzig-green-800 mb-1">
                   {language === 'en' ? 'Completed Quizzes' : 'Abgeschlossene Quizze'}
                 </h3>
-                <p className="text-2xl font-bold text-belzig-green-600">
-                  {completedQuizzes.length} / 10
+                <p className="text-2xl font-bold text-belzig-green-700">
+                  {completedQuizzes.length} / {quizzes.length} {/* Use dynamic total */}
                 </p>
               </div>
+              {/* Stat Box styling */}
               <div className="bg-belzig-green-50 p-4 rounded-lg border border-belzig-green-200">
-                <h3 className="font-semibold text-belzig-green-700">
+                <h3 className="font-semibold text-belzig-green-800 mb-1">
                   {language === 'en' ? 'Earned Badges' : 'Verdiente Abzeichen'}
                 </h3>
-                <p className="text-2xl font-bold text-belzig-green-600">
-                  {earnedBadges.length} / 10
+                <p className="text-2xl font-bold text-belzig-green-700">
+                  {earnedBadges.length} / {quizzes.length} {/* Use dynamic total */}
                 </p>
               </div>
             </div>
 
-            {/* Badge Preview */}
+            {/* Badge Preview styling */}
             {earnedBadges.length > 0 && (
-              <div className="mt-6">
-                <h3 className="font-semibold text-belzig-green-700 mb-2">
+              <div className="mt-6 md:mt-8"> {/* Added top margin */}
+                <h3 className="font-semibold text-belzig-gray-800 mb-3"> {/* Adjusted color/margin */}
                   {language === 'en' ? 'Recent Badges' : 'Neueste Abzeichen'}
                 </h3>
-                <div className="flex space-x-2 overflow-x-auto pb-2">
-                  {/* Show last 3 earned badges */}
+                 {/* Add padding/container for scrolling if needed */}
+                <div className="flex space-x-3 overflow-x-auto pb-2"> {/* Adjusted spacing */}
                   {earnedBadges.slice(-3).map(badgeId => (
                     <img
                       key={badgeId}
                       src={`/badges/${badgeId.replace('badge-', '')}.svg`}
-                      alt=""
-                      className="w-16 h-16"
+                      alt={`${badgeId} badge`} // Added alt text
+                      className="w-16 h-16 flex-shrink-0" // Prevent shrinking
                     />
                   ))}
                 </div>
               </div>
             )}
 
+            {/* Render children passed to Layout (if any) */}
             {children}
           </div>
         </div>
       </main>
 
+      {/* Pass props to Footer */}
       <Footer
         currentLanguage={language}
         onLanguageChange={setLanguage}
       />
 
-      {/* Modals */}
+      {/* --- Your existing Modals --- */}
+      {/* Ensure Modals also use consistent styling from your theme */}
       <QuizModal
         quiz={activeQuiz}
         language={language}
@@ -172,15 +176,18 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
         onClose={closeBadgeModal}
       />
 
+      {/* Ensure BadgeCollection overlay/modal has styling */}
       {showBadgeCollection && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <BadgeCollection
+         // Example overlay styling
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 transition-opacity duration-300">
+          <BadgeCollection // Pass props
             language={language}
             earnedBadges={earnedBadges}
             onClose={closeBadgeCollection}
           />
         </div>
       )}
+       {/* --- End of your existing Modals --- */}
     </div>
   );
 };
