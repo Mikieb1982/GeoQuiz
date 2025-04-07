@@ -2,30 +2,20 @@ import { POI } from '../types';
 
 /**
  * Points of Interest (POIs) for Bad Belzig
- *
- * This file contains the data for the 10 POIs in Bad Belzig:
- * 1. Burg Eisenhardt (Castle)
- * 2. SteinTherme (Thermal Bath)
- * 3. Marktplatz (Market Square)
- * 4. Rathaus (Town Hall)
- * 5. St. Marienkirche (St. Mary's Church)
- * 6. Bricciuskapelle (Briccius Chapel)
- * 7. Heimatmuseum (Museum)
- * 8. Sächsische Postmeilensäule (Saxon Post Milestone)
- * 9. Fläming-Bahnhof Bad Belzig (Railway Station)
- * 10. Reißiger-Haus (Historic building)
+ * Coordinates based on user-provided DMS, converted to Decimal Degrees.
+ * Includes "TEST NAME" modification for deployment verification.
  */
 
 export const pois: POI[] = [
   {
     id: 'burg-eisenhardt',
-    coordinates: { // Using original coordinates for this test
-      latitude: 52.1416,
-      longitude: 12.5917
+    coordinates: {
+      latitude: 52.133333, // Converted from 52° 8′ N, 12° 35′ O (Approximate)
+      longitude: 12.583333 // Converted from 52° 8′ N, 12° 35′ O (Approximate)
     },
     geofenceRadius: 50, // in meters
     names: {
-      en: 'Burg Eisenhardt TEST NAME', // <<< Changed for test
+      en: 'Burg Eisenhardt TEST NAME', // <<< Includes TEST NAME
       de: 'Burg Eisenhardt'
     },
     descriptions: {
@@ -37,9 +27,9 @@ export const pois: POI[] = [
   },
   {
     id: 'steintherme',
-    coordinates: { // Using original coordinates for this test
-      latitude: 52.1372,
-      longitude: 12.5967
+    coordinates: {
+      latitude: 52.145306, // Converted from 52°08'43.1"N 12°35'44.4"E
+      longitude: 12.595667 // Converted from 52°08'43.1"N 12°35'44.4"E
     },
     geofenceRadius: 50,
     names: {
@@ -55,27 +45,29 @@ export const pois: POI[] = [
   },
   {
     id: 'marktplatz',
-    coordinates: { // Using original coordinates for this test
-      latitude: 52.1394,
-      longitude: 12.5928
+    coordinates: {
+      // NOTE: Using previously searched coords as user-provided 52°9', 12°36' seemed incorrect.
+      latitude: 52.1424,
+      longitude: 12.5894
     },
     geofenceRadius: 40,
     names: {
       en: 'Marktplatz (Market Square)',
       de: 'Marktplatz'
     },
-    descriptions: {
-      en: 'The historic market square in the heart of Bad Belzig, surrounded by colorful buildings and cafes.',
-      de: 'Der historische Marktplatz im Herzen von Bad Belzig, umgeben von bunten Gebäuden und Cafés.'
+     descriptions: {
+        en: 'The historic market square in the heart of Bad Belzig, surrounded by colorful buildings and cafes.',
+        de: 'Der historische Marktplatz im Herzen von Bad Belzig, umgeben von bunten Gebäuden und Cafés.'
     },
     quizId: 'quiz-marktplatz',
     badgeId: 'badge-marktplatz'
   },
   {
     id: 'rathaus',
-    coordinates: { // Using original coordinates for this test
-      latitude: 52.1395,
-      longitude: 12.5930
+    coordinates: {
+      // NOTE: Using previously searched coords as user-provided 52°9', 12°36' seemed incorrect.
+      latitude: 52.1426,
+      longitude: 12.5896
     },
     geofenceRadius: 30,
     names: {
@@ -83,17 +75,17 @@ export const pois: POI[] = [
       de: 'Rathaus'
     },
     descriptions: {
-      en: 'The historic town hall of Bad Belzig, an important administrative building with architectural significance.',
-      de: 'Das historische Rathaus von Bad Belzig, ein wichtiges Verwaltungsgebäude mit architektonischer Bedeutung.'
+        en: 'The historic town hall of Bad Belzig, an important administrative building with architectural significance.',
+        de: 'Das historische Rathaus von Bad Belzig, ein wichtiges Verwaltungsgebäude mit architektonischer Bedeutung.'
     },
     quizId: 'quiz-rathaus',
     badgeId: 'badge-rathaus'
   },
   {
     id: 'st-marienkirche',
-    coordinates: { // Using original coordinates for this test
-      latitude: 52.1399,
-      longitude: 12.5925
+    coordinates: {
+      latitude: 52.141694, // Converted from 52° 8′ 30.1″ N, 12° 35′ 14.5″ E
+      longitude: 12.587361 // Converted from 52° 8′ 30.1″ N, 12° 35′ 14.5″ E
     },
     geofenceRadius: 40,
     names: {
@@ -101,17 +93,17 @@ export const pois: POI[] = [
       de: 'St. Marienkirche'
     },
     descriptions: {
-      en: 'A beautiful church with a rich history, featuring impressive architecture and religious artifacts.',
-      de: 'Eine wunderschöne Kirche mit einer reichen Geschichte, die durch beeindruckende Architektur und religiöse Artefakte besticht.'
+        en: 'A beautiful church with a rich history, featuring impressive architecture and religious artifacts.',
+        de: 'Eine wunderschöne Kirche mit einer reichen Geschichte, die durch beeindruckende Architektur und religiöse Artefakte besticht.'
     },
     quizId: 'quiz-st-marienkirche',
     badgeId: 'badge-st-marienkirche'
   },
   {
     id: 'bricciuskapelle',
-    coordinates: { // Using original coordinates for this test
-      latitude: 52.1418,
-      longitude: 12.5915
+    coordinates: {
+      latitude: 52.136611, // Converted from 52° 8′ 11.8″ N, 12° 35′ 1.4″ E
+      longitude: 12.583722 // Converted from 52° 8′ 11.8″ N, 12° 35′ 1.4″ E
     },
     geofenceRadius: 30,
     names: {
@@ -119,17 +111,17 @@ export const pois: POI[] = [
       de: 'Bricciuskapelle'
     },
     descriptions: {
-      en: 'A historic chapel located on the castle grounds, named after Saint Briccius.',
-      de: 'Eine historische Kapelle auf dem Burggelände, benannt nach dem Heiligen Briccius.'
+        en: 'A historic chapel located on the castle grounds, named after Saint Briccius.',
+        de: 'Eine historische Kapelle auf dem Burggelände, benannt nach dem Heiligen Briccius.'
     },
     quizId: 'quiz-bricciuskapelle',
     badgeId: 'badge-bricciuskapelle'
   },
   {
     id: 'heimatmuseum',
-    coordinates: { // Using original coordinates for this test
-      latitude: 52.1415,
-      longitude: 12.5920
+    coordinates: {
+      latitude: 52.133333, // Using converted Burg Eisenhardt coordinates
+      longitude: 12.583333 // Using converted Burg Eisenhardt coordinates
     },
     geofenceRadius: 30,
     names: {
@@ -137,35 +129,35 @@ export const pois: POI[] = [
       de: 'Heimatmuseum'
     },
     descriptions: {
-      en: 'A local history museum located in the castle gatehouse, showcasing the cultural heritage of Bad Belzig.',
-      de: 'Ein Heimatmuseum im Torhaus der Burg, das das kulturelle Erbe von Bad Belzig präsentiert.'
+        en: 'A local history museum located in the castle gatehouse, showcasing the cultural heritage of Bad Belzig.',
+        de: 'Ein Heimatmuseum im Torhaus der Burg, das das kulturelle Erbe von Bad Belzig präsentiert.'
     },
     quizId: 'quiz-heimatmuseum',
     badgeId: 'badge-heimatmuseum'
   },
   {
     id: 'postmeilensaule',
-    coordinates: { // Using original coordinates for this test
-      latitude: 52.1390,
-      longitude: 12.5935
+    coordinates: {
+      latitude: 52.136944, // Converted from 52° 8′ 13″ N, 12° 35′ 12.1″ E
+      longitude: 12.586694 // Converted from 52° 8′ 13″ N, 12° 35′ 12.1″ E
     },
     geofenceRadius: 20,
     names: {
       en: 'Saxon Post Milestone',
       de: 'Sächsische Postmeilensäule'
     },
-    descriptions: {
-      en: 'A historic milestone from the Saxon postal system, marking distances to other cities.',
-      de: 'Ein historischer Meilenstein aus dem sächsischen Postsystem, der die Entfernungen zu anderen Städten markiert.'
+     descriptions: {
+        en: 'A historic milestone from the Saxon postal system, marking distances to other cities.',
+        de: 'Ein historischer Meilenstein aus dem sächsischen Postsystem, der die Entfernungen zu anderen Städten markiert.'
     },
     quizId: 'quiz-postmeilensaule',
     badgeId: 'badge-postmeilensaule'
   },
   {
     id: 'flaming-bahnhof',
-    coordinates: { // Using original coordinates for this test
-      latitude: 52.1342,
-      longitude: 12.5868
+    coordinates: {
+      latitude: 52.135833, // Converted from 52° 8′ 9″ N, 12° 35′ 42″ E
+      longitude: 12.595000 // Converted from 52° 8′ 9″ N, 12° 35′ 42″ E
     },
     geofenceRadius: 50,
     names: {
@@ -173,17 +165,17 @@ export const pois: POI[] = [
       de: 'Fläming-Bahnhof Bad Belzig'
     },
     descriptions: {
-      en: 'The railway station of Bad Belzig, connecting the town to Berlin and other destinations.',
-      de: 'Der Bahnhof von Bad Belzig, der die Stadt mit Berlin und anderen Zielen verbindet.'
+        en: 'The railway station of Bad Belzig, connecting the town to Berlin and other destinations.',
+        de: 'Der Bahnhof von Bad Belzig, der die Stadt mit Berlin und anderen Zielen verbindet.'
     },
     quizId: 'quiz-flaming-bahnhof',
     badgeId: 'badge-flaming-bahnhof'
   },
   {
     id: 'reissiger-haus',
-    coordinates: { // Using original coordinates for this test
-      latitude: 52.1397,
-      longitude: 12.5940
+    coordinates: {
+      latitude: 52.136528, // Converted from 52° 8′ 11.5″ N, 12° 35′ 37.1″ E
+      longitude: 12.593639 // Converted from 52° 8′ 11.5″ N, 12° 35′ 37.1″ E
     },
     geofenceRadius: 30,
     names: {
@@ -191,8 +183,8 @@ export const pois: POI[] = [
       de: 'Reißiger-Haus'
     },
     descriptions: {
-      en: 'A historic building named after Carl Gottlieb Reißiger, a notable composer from the region.',
-      de: 'Ein historisches Gebäude, benannt nach Carl Gottlieb Reißiger, einem bedeutenden Komponisten aus der Region.'
+        en: 'A historic building named after Carl Gottlieb Reißiger, a notable composer from the region.',
+        de: 'Ein historisches Gebäude, benannt nach Carl Gottlieb Reißiger, einem bedeutenden Komponisten aus der Region.'
     },
     quizId: 'quiz-reissiger-haus',
     badgeId: 'badge-reissiger-haus'
