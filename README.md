@@ -68,6 +68,19 @@ A fun and interactive quiz game to test your geographical knowledge, themed arou
     ```
     Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+4.  **Build the Cloudflare worker:**
+    ```bash
+    pnpm run build:worker
+    ```
+    This command generates the worker output in the `.open-next` folder.
+
+5.  **Deploy to Cloudflare:**
+    ```bash
+    wrangler deploy
+    ```
+    Deployment requires Cloudflare credentials (`CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`).
+    The worker expects the `DB` and `ASSETS` bindings defined in `wrangler.toml`.
+
 ## 🗺️ Project Structure
 
 * `/public`: Static assets (images, badge SVGs).
