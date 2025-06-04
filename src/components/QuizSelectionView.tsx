@@ -27,7 +27,7 @@ const QuizSelectionView = ({ quizzes = [], onSelectQuiz }) => { // Default quizz
                 </h1>
                 <p className="text-lg text-text-muted">
                     Choose a quiz below to test your geographical knowledge.
-                </p
+                </p>
             </header>
 
             <div className="space-y-6">
