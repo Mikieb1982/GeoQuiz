@@ -1,6 +1,7 @@
- [build]
-  command = "pnpm run build"
-  publish = ".next"
+
+[build]
+  command = "pnpm run build && next export --outdir out/GeoQuiz"
+  publish = "out"
 
 # Ensure the official Netlify plugin for Next.js is used
 [[plugins]]
