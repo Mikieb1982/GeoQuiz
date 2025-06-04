@@ -3,6 +3,7 @@ node_modules/
 .open-next/
 .DS_Store
 dist/
+tsconfig.tsbuildinfo
 *.local
 .env*
 # keep export directory for GitHub Pages

@@ -28,7 +28,7 @@ export const metadata = {
  * @param {React.ReactNode} props.children - The child components (pages or nested layouts).
  * @returns {JSX.Element} The root HTML structure wrapping the application.
  */
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       {/* The <body> tag should not be manually added here if using AppLayout to provide it,

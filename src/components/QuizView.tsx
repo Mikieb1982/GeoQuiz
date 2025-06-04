@@ -4,7 +4,7 @@ import Image from 'next/image';
 import AnswerOption from './AnswerOption'; // Assuming AnswerOption.js is in the same folder or correct path
 
 // Helper function to shuffle answers (optional, but good for quizzes)
-const shuffleArray = (array) => {
+const shuffleArray = <T,>(array: T[]): T[] => {
     if (!array) return [];
     let currentIndex = array.length, randomIndex;
     while (currentIndex !== 0) {
@@ -15,22 +15,43 @@ const shuffleArray = (array) => {
     return array;
 };
 
-const QuizView = ({
-    questionSet = [], // Expect an array of question objects
-    quizTitle = "Quiz",  // Optional title for the quiz
-    onQuizComplete      // Callback: (finalScore, totalQuestions, correctAnswersCount) => void
+interface Answer {
+    id: string;
+    text: string;
+}
+
+export interface QuizQuestion {
+    id: string;
+    text: string;
+    answers: Answer[];
+    correctAnswerId: string;
+    points: number;
+    imageUrl?: string;
+    imageAlt?: string;
+}
+
+export interface QuizViewProps {
+    questionSet?: QuizQuestion[];
+    quizTitle?: string;
+    onQuizComplete?: (score: number, total: number, correct: number) => void;
+}
+
+const QuizView: React.FC<QuizViewProps> = ({
+    questionSet = [],
+    quizTitle = "Quiz",
+    onQuizComplete
 }) => {
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [currentScore, setCurrentScore] = useState(0);
-    const [correctAnswersThisQuiz, setCorrectAnswersThisQuiz] = useState(0);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+    const [currentScore, setCurrentScore] = useState<number>(0);
+    const [correctAnswersThisQuiz, setCorrectAnswersThisQuiz] = useState<number>(0);
 
-    const questionData = questionSet[currentQuestionIndex];
+    const questionData: QuizQuestion | undefined = questionSet[currentQuestionIndex];
 
-    const [selectedAnswerId, setSelectedAnswerId] = useState(null);
-    const [answersChecked, setAnswersChecked] = useState(false);
-    const [shuffledAnswers, setShuffledAnswers] = useState([]);
-    const [feedbackMessage, setFeedbackMessage] = useState('');
-    const [isCorrect, setIsCorrect] = useState(null);
+    const [selectedAnswerId, setSelectedAnswerId] = useState<string | null>(null);
+    const [answersChecked, setAnswersChecked] = useState<boolean>(false);
+    const [shuffledAnswers, setShuffledAnswers] = useState<Answer[]>([]);
+    const [feedbackMessage, setFeedbackMessage] = useState<string>('');
+    const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
     useEffect(() => {
         // Reset state when questionSet changes (i.e., new quiz starts)
@@ -55,7 +76,7 @@ const QuizView = ({
         setIsCorrect(null);
     }, [questionData]); // Dependency on the current question's data
 
-    const handleSelectAnswer = (answerId) => {
+    const handleSelectAnswer = (answerId: string) => {
         if (!answersChecked) {
             setSelectedAnswerId(answerId);
             setFeedbackMessage('');

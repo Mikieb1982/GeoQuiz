@@ -1,8 +1,8 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
-import QuizView from '../components/QuizView'
+import QuizView, { QuizQuestion } from '../components/QuizView'
 
-const questionSet = [
+const questionSet: QuizQuestion[] = [
   {
     id: 'q1',
     text: 'Sample question?',

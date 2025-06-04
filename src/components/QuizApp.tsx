@@ -4,9 +4,32 @@ import QuizSelectionView from './QuizSelectionView';
 import QuizView from './QuizView'; // Assuming QuizView now takes a questionSet prop
 import QuizResultsView from './QuizResultsView';
 
+interface Answer {
+    id: string;
+    text: string;
+}
+
+interface Question {
+    id: string;
+    text: string;
+    answers: Answer[];
+    correctAnswerId: string;
+    points: number;
+    imageUrl?: string;
+    imageAlt?: string;
+}
+
+interface Quiz {
+    id: string;
+    title: string;
+    description: string;
+    icon: string;
+    questionSet: Question[];
+}
+
 // Mock data for available quizzes (expanded with actual question sets)
 // In a real app, this would come from an API, a database, or TypeScript files.
-const MOCK_QUIZZES_DATA = {
+const MOCK_QUIZZES_DATA: Record<string, Quiz> = {
     quiz1: {
         id: 'quiz1',
         title: 'Brandenburg Landmarks',
@@ -51,16 +74,20 @@ const MOCK_QUIZZES_DATA = {
 };
 
 
-const QuizApp = () => {
-    const [currentView, setCurrentView] = useState('selection'); // 'selection', 'quiz', 'results'
-    const [selectedQuizData, setSelectedQuizData] = useState(null);
-    const [quizResults, setQuizResults] = useState({
+const QuizApp: React.FC = () => {
+    const [currentView, setCurrentView] = useState<'selection' | 'quiz' | 'results'>('selection');
+    const [selectedQuizData, setSelectedQuizData] = useState<Quiz | null>(null);
+    const [quizResults, setQuizResults] = useState<{
+        finalScore: number;
+        totalQuestions: number;
+        correctAnswersCount: number;
+    }>({
         finalScore: 0,
         totalQuestions: 0,
         correctAnswersCount: 0
     });
 
-    const handleSelectQuiz = (quizId) => {
+    const handleSelectQuiz = (quizId: string) => {
         const quiz = MOCK_QUIZZES_DATA[quizId];
         if (quiz) {
             setSelectedQuizData(quiz);
@@ -71,7 +98,7 @@ const QuizApp = () => {
         }
     };
 
-    const handleQuizComplete = (finalScore, totalQuestions, correctAnswersCount) => {
+    const handleQuizComplete = (finalScore: number, totalQuestions: number, correctAnswersCount: number) => {
         setQuizResults({ finalScore, totalQuestions, correctAnswersCount });
         setCurrentView('results');
     };
@@ -92,7 +119,7 @@ const QuizApp = () => {
     // Render logic based on currentView
     if (currentView === 'selection') {
         // Pass only the necessary info for selection (titles, descriptions, icons)
-        const quizzesForSelection = Object.values(MOCK_QUIZZES_DATA).map(q => ({
+        const quizzesForSelection: Array<Pick<Quiz, 'id' | 'title' | 'description' | 'icon'>> = Object.values(MOCK_QUIZZES_DATA).map(q => ({
             id: q.id,
             title: q.title,
             description: q.description,

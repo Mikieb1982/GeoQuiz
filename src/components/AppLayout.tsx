@@ -2,9 +2,13 @@
 import React from 'react';
 import Link from 'next/link';
 
+export interface AppLayoutProps {
+    children: React.ReactNode;
+}
+
 // Props for this component:
 // - children: The content to be rendered within the main layout area.
-const AppLayout = ({ children }) => {
+const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     return (
         <div className="min-h-screen flex flex-col font-sans bg-bg-light text-text-dark antialiased">
             {/* Header */}
