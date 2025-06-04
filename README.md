@@ -42,8 +42,8 @@ A fun and interactive quiz game to test your geographical knowledge, themed arou
 
 ### Prerequisites
 
-* Node.js (v16.x or later recommended)
-* npm or yarn
+* Node.js (v18.18.0 or later)
+* pnpm (v8 or later)
 
 ### Installation & Setup
 
@@ -55,16 +55,13 @@ A fun and interactive quiz game to test your geographical knowledge, themed arou
 
 2.  **Install dependencies:**
     ```bash
-    npm install
-    # or
-    yarn install
+    pnpm install
     ```
+    Using `npm` may fail because of peer dependency conflicts.
 
 3.  **Run the development server:**
     ```bash
-    npm run dev
-    # or
-    yarn dev
+    pnpm run dev
     ```
     Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
