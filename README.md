@@ -42,8 +42,8 @@ A fun and interactive quiz game to test your geographical knowledge, themed arou
 
 ### Prerequisites
 
-* Node.js (v16.x or later recommended)
-* npm or yarn
+* Node.js **20.x** (set as `NODE_VERSION`)
+* pnpm package manager
 
 ### Installation & Setup
 
