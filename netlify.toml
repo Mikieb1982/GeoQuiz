@@ -1,6 +1,6 @@
 
 [build]
-  command = "pnpm run build && next export --outdir out/GeoQuiz"
+  command = "pnpm run build && node ./scripts/move-export-to-subdir.js"
   publish = "out"
 
 # Ensure the official Netlify plugin for Next.js is used

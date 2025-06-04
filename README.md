@@ -73,11 +73,11 @@ GeoQuiz can be published as a static site using GitHub Pages:
 
 ### Deployment on Netlify
 
-To deploy on Netlify with the `/GeoQuiz` base path, export the site into a
-subdirectory and set the publish directory to `out`:
+To deploy on Netlify with the `/GeoQuiz` base path, build the site and then move
+the static output into a subdirectory. Set the publish directory to `out`:
 
 ```bash
-pnpm run build && next export --outdir out/GeoQuiz
+pnpm run build && node ./scripts/move-export-to-subdir.js
 ```
 
 The included `netlify.toml` enables the official Netlify Next.js plugin and
