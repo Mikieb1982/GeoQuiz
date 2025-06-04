@@ -89,7 +89,7 @@ Contributions are welcome! If you have suggestions or want to improve GeoQuiz, p
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the `LICENSE` file for details (if you have one, otherwise you can remove this or choose a license).
+This project is licensed under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgements
 
