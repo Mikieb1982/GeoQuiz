@@ -5,7 +5,7 @@
 @layer components {
   /* Custom button styles using the Belzig green theme */
   .custom-btn-primary {
-    @apply bg-belzig-green-500 text-belzig-white px-4 py-2 rounded-xl shadow-button font-semibold transition-colors hover:bg-belzig-green-600;
+    @apply bg-belzig-green-500 text-belzig-white px-4 py-2 rounded-xl shadow-button font-semibold transition-colors hover:bg-belzig-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-belzig-green-500;
   }
 
   .custom-btn-green-outline {
