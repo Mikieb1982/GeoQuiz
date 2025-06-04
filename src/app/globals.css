@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /* Custom button styles using the Belzig green theme */
+  .custom-btn-primary {
+    @apply bg-belzig-green-500 text-belzig-white px-4 py-2 rounded-xl shadow-button font-semibold transition-colors hover:bg-belzig-green-600;
+  }
+
+  .custom-btn-green-outline {
+    @apply bg-belzig-white border border-belzig-green-500 text-belzig-green-600 px-4 py-2 rounded-xl shadow-button font-semibold transition-colors hover:bg-belzig-green-50;
+  }
+}
