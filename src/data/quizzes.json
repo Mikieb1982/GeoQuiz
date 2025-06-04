@@ -1,0 +1,161 @@
+{
+  "quiz1": {
+    "id": "quiz1",
+    "title": {
+      "en": "Hoher Fläming Region",
+      "de": "Region Hoher Fläming"
+    },
+    "description": {
+      "en": "Explore landmarks and facts about Bad Belzig and the Hoher Fläming region.",
+      "de": "Entdecken Sie Sehenswürdigkeiten und Fakten über Bad Belzig und die Region Hoher Fläming."
+    },
+    "icon": "🌲",
+    "questionSet": [
+      {
+        "id": "q1a",
+        "text": {
+          "en": "Which well-known thermal spa is a major attraction in Bad Belzig?",
+          "de": "Welches bekannte Thermalbad ist eine Hauptattraktion in Bad Belzig?"
+        },
+        "answers": [
+          { "id": "a1", "text": { "en": "Spreewald Therme", "de": "Spreewald Therme" } },
+          { "id": "a2", "text": { "en": "SteinTherme", "de": "SteinTherme" } },
+          { "id": "a3", "text": { "en": "Kristall Therme Ludwigsfelde", "de": "Kristall Therme Ludwigsfelde" } },
+          { "id": "a4", "text": { "en": "Fontane Therme Neuruppin", "de": "Fontane Therme Neuruppin" } }
+        ],
+        "correctAnswerId": "a2",
+        "points": 10,
+        "imageUrl": "https://placehold.co/600x300/0ca644/FFFFFF?text=SteinTherme+Bad+Belzig",
+        "imageAlt": {
+          "en": "SteinTherme Bad Belzig",
+          "de": "SteinTherme Bad Belzig"
+        }
+      },
+      {
+        "id": "q1b",
+        "text": {
+          "en": "The 'Naturpark Hoher Fläming' is known for which type of landscape?",
+          "de": "Für welche Landschaftsform ist der Naturpark Hoher Fläming bekannt?"
+        },
+        "answers": [
+          { "id": "b1", "text": { "en": "Dense pine forests and rolling hills", "de": "Dichte Kiefernwälder und sanfte Hügel" } },
+          { "id": "b2", "text": { "en": "Extensive lake districts", "de": "Ausgedehnte Seenlandschaften" } },
+          { "id": "b3", "text": { "en": "Dramatic river gorges", "de": "Dramatische Flussschluchten" } },
+          { "id": "b4", "text": { "en": "Coastal dunes", "de": "Küstendünen" } }
+        ],
+        "correctAnswerId": "b1",
+        "points": 15
+      },
+      {
+        "id": "q1c",
+        "text": {
+          "en": "Burg Rabenstein, a well-preserved medieval castle, is located near which town in the Hoher Fläming?",
+          "de": "Burg Rabenstein, eine gut erhaltene mittelalterliche Burg, liegt in der Nähe welcher Stadt im Hohen Fläming?"
+        },
+        "answers": [
+          { "id": "c1", "text": { "en": "Bad Belzig", "de": "Bad Belzig" } },
+          { "id": "c2", "text": { "en": "Wiesenburg", "de": "Wiesenburg" } },
+          { "id": "c3", "text": { "en": "Raben", "de": "Raben" } },
+          { "id": "c4", "text": { "en": "Niemegk", "de": "Niemegk" } }
+        ],
+        "correctAnswerId": "c3",
+        "points": 10,
+        "imageUrl": "https://placehold.co/600x300/A0522D/FFFFFF?text=Burg+Rabenstein",
+        "imageAlt": {
+          "en": "Burg Rabenstein",
+          "de": "Burg Rabenstein"
+        }
+      },
+      {
+        "id": "q1d",
+        "text": {
+          "en": "What is the approximate elevation of the Hagelberg, one of the highest points in the Hoher Fläming, near Bad Belzig?",
+          "de": "Wie hoch ist der Hagelberg ungefähr, einer der höchsten Punkte im Hohen Fläming, in der Nähe von Bad Belzig?"
+        },
+        "answers": [
+          { "id": "d1", "text": { "en": "Around 100 meters", "de": "Ungefähr 100 Meter" } },
+          { "id": "d2", "text": { "en": "Around 200 meters", "de": "Ungefähr 200 Meter" } },
+          { "id": "d3", "text": { "en": "Around 300 meters", "de": "Ungefähr 300 Meter" } },
+          { "id": "d4", "text": { "en": "Around 50 meters", "de": "Ungefähr 50 Meter" } }
+        ],
+        "correctAnswerId": "d2",
+        "points": 15
+      }
+    ]
+  },
+  "quiz2": {
+    "id": "quiz2",
+    "title": {
+      "en": "Bad Belzig Specifics",
+      "de": "Bad Belzig Spezifisch"
+    },
+    "description": {
+      "en": "How well do you know the town of Bad Belzig itself?",
+      "de": "Wie gut kennen Sie die Stadt Bad Belzig selbst?"
+    },
+    "icon": "🏰",
+    "questionSet": [
+      {
+        "id": "q2a",
+        "text": {
+          "en": "What is the official name of the medieval castle in Bad Belzig?",
+          "de": "Wie lautet der offizielle Name der mittelalterlichen Burg in Bad Belzig?"
+        },
+        "answers": [
+          { "id": "c1", "text": { "en": "Burg Eisenhardt", "de": "Burg Eisenhardt" } },
+          { "id": "c2", "text": { "en": "Schloss Belzig", "de": "Schloss Belzig" } },
+          { "id": "c3", "text": { "en": "Festung Fläming", "de": "Festung Fläming" } }
+        ],
+        "correctAnswerId": "c1",
+        "points": 10,
+        "imageUrl": "https://placehold.co/600x300/007BFF/FFFFFF?text=Burg+Eisenhardt",
+        "imageAlt": {
+          "en": "Burg Eisenhardt in Bad Belzig",
+          "de": "Burg Eisenhardt in Bad Belzig"
+        }
+      },
+      {
+        "id": "q2b",
+        "text": {
+          "en": "Bad Belzig is the administrative seat of which 'Landkreis' (district)?",
+          "de": "Bad Belzig ist der Verwaltungssitz welches Landkreises?"
+        },
+        "answers": [
+          { "id": "d1", "text": { "en": "Potsdam-Mittelmark", "de": "Potsdam-Mittelmark" } },
+          { "id": "d2", "text": { "en": "Teltow-Fläming", "de": "Teltow-Fläming" } },
+          { "id": "d3", "text": { "en": "Havelland", "de": "Havelland" } }
+        ],
+        "correctAnswerId": "d1",
+        "points": 10
+      },
+      {
+        "id": "q2c",
+        "text": {
+          "en": "Which small river flows directly through Bad Belzig?",
+          "de": "Welcher kleine Fluss fließt direkt durch Bad Belzig?"
+        },
+        "answers": [
+          { "id": "e1", "text": { "en": "Belziger Bach", "de": "Belziger Bach" } },
+          { "id": "e2", "text": { "en": "Plane", "de": "Plane" } },
+          { "id": "e3", "text": { "en": "Nuthe", "de": "Nuthe" } }
+        ],
+        "correctAnswerId": "e1",
+        "points": 15
+      },
+      {
+        "id": "q2d",
+        "text": {
+          "en": "The 'Kunstwanderweg Hoher Fläming' is a trail known for what?",
+          "de": "Wofür ist der Kunstwanderweg Hoher Fläming bekannt?"
+        },
+        "answers": [
+          { "id": "f1", "text": { "en": "Outdoor art installations", "de": "Kunstinstallationen im Freien" } },
+          { "id": "f2", "text": { "en": "Historical battle re-enactments", "de": "Historische Schlachtnachstellungen" } },
+          { "id": "f3", "text": { "en": "Rare bird watching spots", "de": "Seltene Vogelbeobachtungsplätze" } }
+        ],
+        "correctAnswerId": "f1",
+        "points": 10
+      }
+    ]
+  }
+}
