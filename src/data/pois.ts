@@ -3,7 +3,6 @@ import { POI } from '../types';
 /**
  * Points of Interest (POIs) for Bad Belzig
  * Coordinates based on user-provided DMS, converted to Decimal Degrees.
- * Includes "TEST NAME" modification for deployment verification.
  */
 
 export const pois: POI[] = [
@@ -15,7 +14,7 @@ export const pois: POI[] = [
     },
     geofenceRadius: 50, // in meters
     names: {
-      en: 'Burg Eisenhardt', // <<< Includes TEST NAME
+      en: 'Burg Eisenhardt',
       de: 'Burg Eisenhardt'
     },
     descriptions: {
