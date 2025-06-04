@@ -2,32 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet';
-import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { POI } from '../types';
 import { pois } from '../data/pois'; // Make sure this path is correct
-
-// Fix for Leaflet marker icons in Next.js
-// NOTE: Ensure these icon files exist in your /public folder!
-const DefaultIcon = L.icon({
-  iconUrl: '/marker-icon.png', // Or '/poi-marker.svg' if using SVG
-  shadowUrl: '/marker-shadow.png', // Remove if using SVG or no shadow
-  iconSize: [25, 41],    // Adjust if using SVG
-  iconAnchor: [12, 41],   // Adjust if using SVG
-  popupAnchor: [1, -34],  // Adjust if using SVG
-  shadowSize: [41, 41]    // Adjust if using SVG
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
-
-// Custom marker for user location
-// NOTE: Ensure this icon file exists in your /public folder!
-const UserLocationIcon = L.icon({
-  iconUrl: '/user-location.png', // Or '/user-location.svg' if using SVG
-  iconSize: [24, 24],     // Adjust if using SVG
-  iconAnchor: [12, 12],    // Adjust if using SVG
-  popupAnchor: [0, -12]   // Adjust if using SVG
-});
+import { createPoiIcon, createUserLocationIcon } from './MapIcons';
 
 // Component to handle map center and zoom based on user location
 const MapController: React.FC<{
@@ -150,6 +128,7 @@ const Map: React.FC<MapProps> = ({ language, onPoiClick }) => {
            <Marker
             key={poi.id}
             position={[poi.coordinates.latitude, poi.coordinates.longitude]}
+            icon={createPoiIcon()}
             eventHandlers={{
               click: () => onPoiClick(poi) // Call prop function on click
             }}
@@ -181,7 +160,7 @@ const Map: React.FC<MapProps> = ({ language, onPoiClick }) => {
 
         {/* User location marker */}
         {userLocation && (
-          <Marker position={userLocation} icon={UserLocationIcon}>
+          <Marker position={userLocation} icon={createUserLocationIcon()}>
             <Popup>
               {language === 'en' ? 'Your location' : 'Dein Standort'}
             </Popup>
