@@ -1,3 +1,5 @@
+"use client";
+
 // components/QuizView.js (or a similar path)
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
