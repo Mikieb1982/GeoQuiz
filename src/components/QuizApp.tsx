@@ -1,3 +1,5 @@
+"use client";
+
 // components/QuizApp.js (or a similar path)
 import React, { useState } from 'react';
 import QuizSelectionView from './QuizSelectionView';
