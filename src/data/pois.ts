@@ -15,7 +15,7 @@ export const pois: POI[] = [
     },
     geofenceRadius: 50, // in meters
     names: {
-      en: 'Burg Eisenhardt TEST NAME', // <<< Includes TEST NAME
+      en: 'Burg Eisenhardt', // <<< Includes TEST NAME
       de: 'Burg Eisenhardt'
     },
     descriptions: {
