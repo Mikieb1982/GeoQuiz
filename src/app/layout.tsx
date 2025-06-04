@@ -1,27 +1,42 @@
-'use client';
+// src/app/layout.js
+// If using TypeScript, change the extension to .tsx and import 'Metadata' type if needed.
+// import type { Metadata } from 'next';
 
-import React from 'react';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import AppLayout from '../components/AppLayout'; // Adjust path as per your project structure
+import '../styles/globals.css'; // Your global stylesheet, including Tailwind imports
 
-const inter = Inter({ subsets: ['latin'] });
+// Metadata for the page (replaces <Head> from 'next/head' in Pages Router)
+// You can export this directly from your layout.tsx or page.tsx files.
+export const metadata = {
+  title: 'GeoQuiz - Test Your Geography Knowledge!',
+  description: 'A fun and interactive quiz game to test your geographical knowledge, themed around Bad Belzig and more!',
+  // You can add more metadata here like icons, openGraph, etc.
+  // icons: {
+  //   icon: '/favicon.ico', // Example
+  // },
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+/**
+ * RootLayout component serves as the main layout for all routes in the application.
+ * It includes the <html> and <body> tags.
+ * @param {object} props - The properties passed to the component.
+ * @param {React.ReactNode} props.children - The child components (pages or nested layouts).
+ * @returns {JSX.Element} The root HTML structure wrapping the application.
+ */
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <title>Bad Belzig Abenteuer Geo Quiz</title>
-        <meta name="description" content="Explore Bad Belzig and discover its fascinating locations through an interactive quiz game" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body className={inter.className}>
-        {children}
+      {/* The <body> tag should not be manually added here if using AppLayout to provide it,
+          or ensure AppLayout doesn't also try to render a body tag.
+          Typically, AppLayout would provide the header/main/footer within the body.
+          Let's assume AppLayout is structured to be the content *within* the body.
+      */}
+      <body>
+        <AppLayout>
+          {children}
+        </AppLayout>
       </body>
     </html>
   );
 }
+
