@@ -3,7 +3,12 @@
 // import type { Metadata } from 'next';
 
 import AppLayout from '../components/AppLayout'; // Adjust path as per your project structure
-import '../styles/globals.css'; // Your global stylesheet, including Tailwind imports
+import './globals.css';
+
+import { Inter, Montserrat } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' });
 
 // Metadata for the page (replaces <Head> from 'next/head' in Pages Router)
 // You can export this directly from your layout.tsx or page.tsx files.
@@ -25,13 +30,13 @@ export const metadata = {
  */
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       {/* The <body> tag should not be manually added here if using AppLayout to provide it,
           or ensure AppLayout doesn't also try to render a body tag.
           Typically, AppLayout would provide the header/main/footer within the body.
           Let's assume AppLayout is structured to be the content *within* the body.
       */}
-      <body>
+      <body className="font-sans">
         <AppLayout>
           {children}
         </AppLayout>
