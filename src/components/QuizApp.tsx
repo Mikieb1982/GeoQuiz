@@ -5,7 +5,7 @@ import QuizView from './QuizView'; // Assuming QuizView now takes a questionSet 
 import QuizResultsView from './QuizResultsView';
 
 // Mock data for available quizzes (expanded with actual question sets)
-// In a real app, this would come from an API, a database, or JSON files.
+// In a real app, this would come from an API, a database, or TypeScript files.
 const MOCK_QUIZZES_DATA = {
     quiz1: {
         id: 'quiz1',

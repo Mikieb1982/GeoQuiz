@@ -36,7 +36,7 @@ A fun and interactive quiz game to test your geographical knowledge, themed arou
 * **Frontend:** Next.js, React, TypeScript
 * **Styling:** Custom Components (with Bad Belzig's green and white color scheme)
 * **Internationalization:** i18n
-* **Data:** Local JSON files for POIs, quizzes, and badges.
+* **Data:** Local TypeScript files for POIs, quizzes, and badges.
 
 ## 🚀 Getting Started
 
@@ -73,7 +73,7 @@ A fun and interactive quiz game to test your geographical knowledge, themed arou
 * `/public`: Static assets (images, badge SVGs).
 * `/src/app`: Next.js pages and routes.
 * `/src/components`: Reusable React UI components.
-* `/src/data`: JSON files for POIs, quizzes, and badges.
+* `/src/data`: TypeScript files for POIs, quizzes, and badges.
 * `/src/types`: TypeScript type definitions.
 * `/src/i18n`: Internationalization configuration.
 
