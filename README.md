@@ -8,6 +8,7 @@ A fun and interactive quiz game to test your geographical knowledge, themed arou
 * Multiple quiz categories related to Points of Interest (POIs) in Bad Belzig.
 * Earn badges for completing quizzes.
 * Engaging UI with a local theme.
+* Light and dark theme toggle.
 * Built with modern web technologies.
 
 ## 🛠️ Tech Stack
