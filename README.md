@@ -64,3 +64,41 @@ GeoQuiz can be published as a static site using GitHub Pages:
 1. Run the export script:
    ```bash
    pnpm run export:ghpages
+   ```
+   The static site will be generated in the `docs/` directory.
+2. Commit the `docs/` folder and push it, for example to a `gh-pages` branch.
+3. In your repository settings, enable **GitHub Pages** and choose the
+   appropriate source (the `docs/` folder or the `gh-pages` branch).
+
+## 🗺️ Project Structure
+
+* `/public`: Static assets (images, badge SVGs).
+* `/src/app`: Next.js pages and routes.
+* `/src/components`: Reusable React UI components.
+* `/src/data`: TypeScript files for POIs, quizzes, and badges.
+* `/src/types`: TypeScript type definitions.
+* `/src/i18n`: Internationalization configuration.
+
+## 🤝 Contributing
+
+Contributions are welcome! If you have suggestions or want to improve GeoQuiz,
+please feel free to:
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgements
+
+* Data sources for Points of Interest.
+* Inspiration from the town of Bad Belzig.
+
+---
+
+*This README was enhanced with suggestions for improved visual appeal.*
