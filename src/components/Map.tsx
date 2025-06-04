@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { POI } from '../types';
 import { pois } from '../data/pois'; // Make sure this path is correct
@@ -34,7 +34,6 @@ const Map: React.FC<MapProps> = ({ language, onPoiClick }) => {
   // --- THIS IS THE KEY CHANGE ---
   const [centerOnUser, setCenterOnUser] = useState(false); // Initialize to false
   // --- END OF KEY CHANGE ---
-  const [watchId, setWatchId] = useState<number | null>(null);
 
   // Initial map center (Bad Belzig center)
   const defaultCenter: [number, number] = [52.1424, 12.5894]; // Using corrected Marktplatz approx coords
@@ -58,7 +57,6 @@ const Map: React.FC<MapProps> = ({ language, onPoiClick }) => {
           timeout: 5000 // Give up after 5s
         }
       );
-      setWatchId(id);
     } else {
       console.error('Geolocation is not supported by this browser.');
       // Handle lack of geolocation support
@@ -74,36 +72,7 @@ const Map: React.FC<MapProps> = ({ language, onPoiClick }) => {
     // Note: If onPoiClick could change, add it here, but it likely doesn't.
   }, []); // Empty dependency array ensures this runs only once on mount
 
-  // Calculate distance (utility function inside component or imported)
-  const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
-    const R = 6371e3; // Earth radius in meters
-    const φ1 = (lat1 * Math.PI) / 180;
-    const φ2 = (lat2 * Math.PI) / 180;
-    const Δφ = ((lat2 - lat1) * Math.PI) / 180;
-    const Δλ = ((lon2 - lon1) * Math.PI) / 180;
 
-    const a =
-      Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-      Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c;
-
-    return distance;
-  };
-
-  // Check if user is within geofence radius of a POI
-  const isWithinGeofence = (poi: POI): boolean => {
-    if (!userLocation) return false; // Cannot be in range if user location is unknown
-
-    const distance = calculateDistance(
-      userLocation[0],
-      userLocation[1],
-      poi.coordinates.latitude,
-      poi.coordinates.longitude
-    );
-
-    return distance <= poi.geofenceRadius;
-  };
 
   return (
     // Ensure container has a defined height
@@ -142,20 +111,6 @@ const Map: React.FC<MapProps> = ({ language, onPoiClick }) => {
               </div>
             </Popup>
           </Marker>
-          // Add back the <Circle> component here if you want to show geofences
-          // Remember to calculate `isInRange` if needed for styling the circle
-          /*
-          const isInRange = isWithinGeofence(poi);
-          <Circle
-            center={[poi.coordinates.latitude, poi.coordinates.longitude]}
-            radius={poi.geofenceRadius}
-            pathOptions={{
-              color: isInRange ? 'green' : 'gray',
-              fillColor: isInRange ? 'green' : 'gray',
-              fillOpacity: 0.2
-            }}
-          />
-          */
         ))}
 
         {/* User location marker */}

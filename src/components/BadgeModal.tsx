@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { Badge, Language } from '../types';
 
@@ -29,9 +30,11 @@ const BadgeModal: React.FC<BadgeModalProps> = ({
         </div>
         
         <div className="p-6 flex flex-col items-center">
-          <img 
-            src={badge.imageUrl} 
-            alt={badge.names[language]} 
+          <Image
+            src={badge.imageUrl}
+            alt={badge.names[language]}
+            width={128}
+            height={128}
             className="w-32 h-32 mb-4"
           />
           

@@ -1,39 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Badge, Language } from '../types';
+import { useState } from 'react';
+import { Badge } from '../types';
 import { badges } from '../data/badges';
 
-interface BadgeManagerProps {
-  language: Language;
-  children: React.ReactNode;
-}
-
-export const BadgeManager: React.FC<BadgeManagerProps> = ({
-  language,
-  children
-}) => {
-  const [earnedBadges, setEarnedBadges] = useState<string[]>([]);
-  
-  // Award a badge when a quiz is completed with a perfect score
-  const awardBadge = (poiId: string) => {
-    const badge = badges.find(b => b.poiId === poiId);
-    
-    if (badge && !earnedBadges.includes(badge.id)) {
-      setEarnedBadges(prev => [...prev, badge.id]);
-      return badge;
-    }
-    
-    return null;
-  };
-  
-  return (
-    <>
-      {children}
-    </>
-  );
-};
 
 // Hook for managing badges
 export const useBadgeManager = () => {

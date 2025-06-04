@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Badge, Language } from '../types';
+import { Language } from '../types';
 import BadgeCard from './BadgeCard';
 import { badges } from '../data/badges';
 

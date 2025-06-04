@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Language } from '../types';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -11,7 +10,6 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ currentLanguage, onLanguageChange }) => {
-  const { t } = useTranslation();
   
   return (
     <footer className="bg-belzig-green-500 text-white py-4">

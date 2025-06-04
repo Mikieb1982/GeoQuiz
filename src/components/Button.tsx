@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -23,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
 }) => {
   // Base classes
-  let baseClasses = 'rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseClasses = 'rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   // Variant classes
   let variantClasses = '';

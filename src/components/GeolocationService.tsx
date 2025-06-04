@@ -15,7 +15,6 @@ export const GeolocationService: React.FC<GeolocationServiceProps> = ({
   onLocationUpdate, 
   onError 
 }) => {
-  const [watchId, setWatchId] = useState<number | null>(null);
 
   useEffect(() => {
     // Check if geolocation is supported
@@ -41,13 +40,9 @@ export const GeolocationService: React.FC<GeolocationServiceProps> = ({
       }
     );
     
-    setWatchId(id);
-    
     // Clean up on unmount
     return () => {
-      if (watchId !== null) {
-        navigator.geolocation.clearWatch(watchId);
-      }
+      navigator.geolocation.clearWatch(id);
     };
   }, [onLocationUpdate, onError]);
 

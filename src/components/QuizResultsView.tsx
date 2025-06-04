@@ -27,7 +27,7 @@ const QuizResultsView = ({
         } else if (percentageScore >= 40) {
             performanceMessage = "Not bad! Keep practicing to improve.";
         } else {
-            performanceMessage = "Keep learning and try again! You'll get there.";
+            performanceMessage = "Keep learning and try again! You&#39;ll get there.";
         }
     }
 
@@ -53,7 +53,7 @@ const QuizResultsView = ({
                         <span className="font-semibold text-brand-green"> {totalQuestions}</span> questions correctly.
                     </p>
                     <p>
-                        That's <span className="font-semibold text-brand-blue">{percentageScore}%</span>!
+                        That&#39;s <span className="font-semibold text-brand-blue">{percentageScore}%</span>!
                     </p>
                     {performanceMessage && (
                         <p className="mt-4 pt-4 border-t border-border-light text-text-muted italic">

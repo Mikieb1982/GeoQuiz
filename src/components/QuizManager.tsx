@@ -1,50 +1,16 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Quiz, POI, Language } from '../types';
-import { quizzes } from '../data/quizzes';
+import React, { useState } from 'react';
+import { POI } from '../types';
 
 interface QuizManagerProps {
-  language: Language;
   activePoi: POI | null;
   onQuizComplete: (poiId: string, score: number, perfect: boolean) => void;
-  onClose: () => void;
   children: React.ReactNode;
 }
 
-export const QuizManager: React.FC<QuizManagerProps> = ({
-  language,
-  activePoi,
-  onQuizComplete,
-  onClose,
-  children
-}) => {
-  const [activeQuiz, setActiveQuiz] = useState<Quiz | null>(null);
-  
-  // Find and set the active quiz when POI changes
-  useEffect(() => {
-    if (!activePoi) {
-      setActiveQuiz(null);
-      return;
-    }
-    
-    const quiz = quizzes.find(q => q.poiId === activePoi.id);
-    setActiveQuiz(quiz || null);
-  }, [activePoi]);
-  
-  // Handle quiz completion
-  const handleQuizComplete = (score: number, perfect: boolean) => {
-    if (activePoi) {
-      onQuizComplete(activePoi.id, score, perfect);
-    }
-  };
-  
-  return (
-    <>
-      {children}
-      {/* Quiz modal or overlay would be rendered here */}
-    </>
-  );
+export const QuizManager: React.FC<QuizManagerProps> = ({ children }) => {
+  return <>{children}</>;
 };
 
 // Hook for managing quizzes

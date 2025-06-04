@@ -25,11 +25,6 @@ const QuizModal: React.FC<QuizModalProps> = ({
     return null;
   }
 
-  // --- Handlers for quiz logic would go here ---
-  const handleAnswer = (/* ... */) => {
-    // Logic to check answer, move to next question, etc.
-  };
-
   const handleQuizFinish = () => {
     // Calculate score, determine if perfect
     const score = 85; // Example score

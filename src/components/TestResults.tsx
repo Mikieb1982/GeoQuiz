@@ -1,14 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 
 interface TestResultsProps {
   onClose: () => void;
 }
 
 const TestResults: React.FC<TestResultsProps> = ({ onClose }) => {
-  const { t } = useTranslation();
   
   // Test results data
   const testResults = [

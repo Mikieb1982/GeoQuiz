@@ -1,5 +1,5 @@
 // components/QuizApp.js (or a similar path)
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import QuizSelectionView from './QuizSelectionView';
 import QuizView from './QuizView'; // Assuming QuizView now takes a questionSet prop
 import QuizResultsView from './QuizResultsView';
