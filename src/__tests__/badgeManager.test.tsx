@@ -8,7 +8,10 @@ jest.mock('../data/badges', () => ({
   ]
 }))
 
-const TestComponent = React.forwardRef<ReturnType<typeof useBadgeManager>, {}>(function TestComponent(_, ref) {
+const TestComponent = React.forwardRef<
+  ReturnType<typeof useBadgeManager>,
+  Record<string, never>
+>(function TestComponent(_, ref) {
   const manager = useBadgeManager()
   React.useImperativeHandle(ref, () => manager)
   return null
