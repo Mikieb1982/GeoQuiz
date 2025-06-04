@@ -81,6 +81,18 @@ A fun and interactive quiz game to test your geographical knowledge, themed arou
     Deployment requires Cloudflare credentials (`CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`).
     The worker expects the `DB` and `ASSETS` bindings defined in `wrangler.toml`.
 
+### Static Export for GitHub Pages
+
+GeoQuiz can be published as a static site using GitHub Pages:
+
+1. Run the export script:
+   ```bash
+   pnpm run export:ghpages
+   ```
+   The static site will be generated in the `docs/` directory.
+2. Commit the `docs/` folder and push your changes.
+3. In your repository settings, enable **GitHub Pages** and choose the `docs/` folder as the source.
+
 ## 🗺️ Project Structure
 
 * `/public`: Static assets (images, badge SVGs).
