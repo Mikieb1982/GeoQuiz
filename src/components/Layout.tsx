@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import dynamic from 'next/dynamic'; // Make sure dynamic is imported
 import { useTranslation } from 'react-i18next';
 import { Language } from '../types';
@@ -136,11 +137,13 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
                  {/* Add padding/container for scrolling if needed */}
                 <div className="flex space-x-3 overflow-x-auto pb-2"> {/* Adjusted spacing */}
                   {earnedBadges.slice(-3).map(badgeId => (
-                    <img
+                    <Image
                       key={badgeId}
                       src={`/badges/${badgeId.replace('badge-', '')}.svg`}
-                      alt={`${badgeId} badge`} // Added alt text
-                      className="w-16 h-16 flex-shrink-0" // Prevent shrinking
+                      alt={`${badgeId} badge`}
+                      width={64}
+                      height={64}
+                      className="w-16 h-16 flex-shrink-0"
                     />
                   ))}
                 </div>

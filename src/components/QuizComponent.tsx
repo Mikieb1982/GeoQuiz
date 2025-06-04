@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Quiz, QuizQuestion, Language } from '../types';
+import { Quiz, Language } from '../types';
 
 interface QuizComponentProps {
   quiz: Quiz;

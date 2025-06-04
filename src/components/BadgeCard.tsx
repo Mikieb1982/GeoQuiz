@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
 import { Badge, Language } from '../types';
 
 interface BadgeCardProps {
@@ -11,15 +11,16 @@ interface BadgeCardProps {
 }
 
 const BadgeCard: React.FC<BadgeCardProps> = ({ badge, language, earned }) => {
-  const { t } = useTranslation();
   
   return (
     <div className={`relative rounded-lg overflow-hidden shadow-md ${earned ? 'bg-white' : 'bg-gray-200'}`}>
       <div className="p-4 flex flex-col items-center">
         {earned ? (
-          <img 
-            src={badge.imageUrl} 
-            alt={badge.names[language]} 
+          <Image
+            src={badge.imageUrl}
+            alt={badge.names[language]}
+            width={96}
+            height={96}
             className="w-24 h-24 mb-3"
           />
         ) : (

@@ -2,12 +2,21 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import Map from '../components/Map'
 
+// Use ESM imports inside mocks to satisfy lint rules
+import * as ReactModule from 'react'
+
 jest.mock('react-leaflet', () => {
-  const React = require('react')
+  const React = ReactModule
   return {
     MapContainer: ({ children }: { children: React.ReactNode }) => <div data-testid="map">{children}</div>,
     TileLayer: () => null,
-    Marker: ({ children, eventHandlers }: any) => (
+    Marker: ({
+      children,
+      eventHandlers,
+    }: {
+      children: React.ReactNode
+      eventHandlers?: { click?: () => void }
+    }) => (
       <div data-testid="marker" onClick={() => eventHandlers?.click?.()}>{children}</div>
     ),
     Popup: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,

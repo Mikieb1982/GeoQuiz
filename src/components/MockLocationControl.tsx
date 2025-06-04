@@ -1,14 +1,12 @@
 'use client';
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 interface MockLocationControlProps {
   onSetLocation: (latitude: number, longitude: number) => void;
 }
 
 const MockLocationControl: React.FC<MockLocationControlProps> = ({ onSetLocation }) => {
-  const { t } = useTranslation();
   
   // Predefined locations for each POI in Bad Belzig
   const poiLocations = [
@@ -48,7 +46,7 @@ const MockLocationControl: React.FC<MockLocationControlProps> = ({ onSetLocation
       <div className="mt-4 pt-4 border-t border-gray-200">
         <p className="text-xs text-gray-500">
           Note: This control overrides your actual GPS location for testing purposes.
-          In a production environment, the app would use your device's real GPS.
+          In a production environment, the app would use your device&#39;s real GPS.
         </p>
       </div>
     </div>

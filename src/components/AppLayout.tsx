@@ -1,5 +1,6 @@
 // components/AppLayout.js (or a similar path)
 import React from 'react';
+import Link from 'next/link';
 
 // Props for this component:
 // - children: The content to be rendered within the main layout area.
@@ -12,9 +13,9 @@ const AppLayout = ({ children }) => {
                     <div className="flex items-center justify-between h-16 md:h-20">
                         {/* Logo/Title */}
                         <div className="flex items-center">
-                            <a href="/" className="text-2xl sm:text-3xl font-bold text-text-light hover:opacity-90 transition-opacity">
+                            <Link href="/" className="text-2xl sm:text-3xl font-bold text-text-light hover:opacity-90 transition-opacity">
                                 GeoQuiz <span className="text-xl">🌍</span>
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Optional Navigation Links (Example) */}

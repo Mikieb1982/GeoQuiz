@@ -1,5 +1,6 @@
 // components/QuizView.js (or a similar path)
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import AnswerOption from './AnswerOption'; // Assuming AnswerOption.js is in the same folder or correct path
 
 // Helper function to shuffle answers (optional, but good for quizzes)
@@ -134,7 +135,13 @@ const QuizView = ({
 
             {questionData.imageUrl && (
                 <div className="mb-6 rounded-lg overflow-hidden shadow">
-                    <img src={questionData.imageUrl} alt={questionData.imageAlt || 'Quiz image'} className="w-full h-auto object-cover max-h-80" />
+                    <Image
+                        src={questionData.imageUrl}
+                        alt={questionData.imageAlt || 'Quiz image'}
+                        width={800}
+                        height={320}
+                        className="w-full h-auto object-cover max-h-80"
+                    />
                 </div>
             )}
 

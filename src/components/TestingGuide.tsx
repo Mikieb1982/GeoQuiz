@@ -1,14 +1,12 @@
 'use client';
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 interface TestingGuideProps {
   onClose: () => void;
 }
 
 const TestingGuide: React.FC<TestingGuideProps> = ({ onClose }) => {
-  const { t } = useTranslation();
   
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 max-w-4xl mx-auto">
@@ -34,7 +32,7 @@ const TestingGuide: React.FC<TestingGuideProps> = ({ onClose }) => {
             <li>Test user location tracking (allow location permissions)</li>
             <li>Verify geofence circles appear around POIs</li>
             <li>Test proximity detection by simulating location changes</li>
-            <li>Verify "center map" button functionality</li>
+            <li>Verify &quot;center map&quot; button functionality</li>
           </ul>
         </section>
         
