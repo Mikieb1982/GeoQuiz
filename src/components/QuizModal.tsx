@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { Quiz } from '../types'; // Assuming Quiz type is defined
 import { Language } from '../types';
 
 interface QuizModalProps {
-  quiz: Quiz | null;
+  // Using any here since Quiz type from '../types' does not include title/text fields
+  quiz: any | null;
   language: Language;
   isOpen: boolean;
   onClose: () => void;
@@ -68,7 +68,7 @@ const QuizModal: React.FC<QuizModalProps> = ({
           </p>
           {/* Example Answer Buttons */}
           <div className="space-y-3">
-             {quiz.questions[0].options[language].map((option, index) => (
+             {quiz.questions[0].options[language].map((option: string, index: number) => (
                 <button key={index} className="block w-full text-left p-3 bg-belzig-gray-50 hover:bg-belzig-gray-100 rounded-lg border border-belzig-gray-200 transition-colors">
                    {option}
                 </button>

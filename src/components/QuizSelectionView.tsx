@@ -1,11 +1,23 @@
 // components/QuizSelectionView.js (or a similar path)
 import React from 'react';
 
+export interface QuizInfo {
+    id: string;
+    title: string;
+    description: string;
+    icon: string;
+}
+
+export interface QuizSelectionViewProps {
+    quizzes?: QuizInfo[];
+    onSelectQuiz: (quizId: string) => void;
+}
+
 // Props for this component:
 // - quizzes: An array of quiz objects, each with id, title, description, icon.
 // - onSelectQuiz: A function that takes the quizId and initiates the selected quiz.
 
-const QuizSelectionView = ({ quizzes = [], onSelectQuiz }) => { // Default quizzes to empty array
+const QuizSelectionView: React.FC<QuizSelectionViewProps> = ({ quizzes = [], onSelectQuiz }) => {
     if (!quizzes || quizzes.length === 0) {
         return (
             <div className="w-full max-w-3xl mx-auto p-6 sm:p-10 text-center">

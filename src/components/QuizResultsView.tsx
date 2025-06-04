@@ -1,6 +1,14 @@
 // components/QuizResultsView.js (or a similar path)
 import React from 'react';
 
+export interface QuizResultsViewProps {
+    finalScore?: number;
+    totalQuestions?: number;
+    correctAnswersCount?: number;
+    onPlayAgain?: () => void;
+    onGoHome?: () => void;
+}
+
 // Props for this component:
 // - finalScore: The total score achieved by the user.
 // - totalQuestions: The total number of questions in the quiz.
@@ -8,7 +16,7 @@ import React from 'react';
 // - onPlayAgain: A function to call when the "Play Again" button is clicked.
 // - onGoHome: A function to call when the "Return to Home" button is clicked (optional).
 
-const QuizResultsView = ({
+const QuizResultsView: React.FC<QuizResultsViewProps> = ({
     finalScore = 0,
     totalQuestions = 0,
     correctAnswersCount = 0,
