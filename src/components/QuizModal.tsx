@@ -1,11 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Language } from '../types';
+import { Language, Quiz } from '../types';
 
 interface QuizModalProps {
-  // Using any here since Quiz type from '../types' does not include title/text fields
-  quiz: any | null;
+  quiz: Quiz | null;
   language: Language;
   isOpen: boolean;
   onClose: () => void;
