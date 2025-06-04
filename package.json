@@ -15,7 +15,8 @@
     "build:worker": "opennextjs-cloudflare",
     "preview": "opennextjs-cloudflare && wrangler dev",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
-    "test": "jest"
+    "test": "jest",
+    "export:ghpages": "next build && next export -o docs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.1",
