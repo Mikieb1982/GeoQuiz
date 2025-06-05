@@ -59,6 +59,12 @@ A fun and interactive quiz game to test your geographical knowledge, themed arou
     Deployment requires Cloudflare credentials (`CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`).
     The worker expects the `DB` and `ASSETS` bindings defined in `wrangler.toml`.
 
+### Cloudflare Deployment with GitHub Actions
+
+Continuous deployment is available via the workflow at `.github/workflows/cloudflare.yml`.
+Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as repository secrets,
+then push to the `main` branch to automatically build and deploy the worker.
+
 ### Static Export for GitHub Pages
 
 GeoQuiz can be published as a static site using GitHub Pages:
