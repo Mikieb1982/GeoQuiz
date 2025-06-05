@@ -2,10 +2,10 @@
 
 ## 1. Project Setup and Requirements Analysis
 - [x] Create project directory structure
-- [ ] Analyze app requirements and constraints
-- [ ] Determine technical approach (web app vs native)
-- [ ] Choose appropriate free development tools and frameworks
-- [ ] Define project timeline and milestones
+- [x] Analyze app requirements and constraints
+- [x] Determine technical approach (web app vs native)
+- [x] Choose appropriate free development tools and frameworks
+- [x] Define project timeline and milestones
 
 ## 2. Development Environment Setup
 - [x] Install necessary development tools
@@ -51,19 +51,19 @@
 - [x] Add badge descriptions in English and German
 
 ## 8. Points of Interest (POIs) Data
-- [ ] Gather precise coordinates for all 10 POIs:
-  - [ ] Burg Eisenhardt (Castle)
-  - [ ] SteinTherme (Thermal Bath)
-  - [ ] Marktplatz (Market Square)
-  - [ ] Rathaus (Town Hall)
-  - [ ] St. Marienkirche (St. Mary's Church)
-  - [ ] Bricciuskapelle (Briccius Chapel)
-  - [ ] Heimatmuseum (Museum)
-  - [ ] Sächsische Postmeilensäule (Saxon Post Milestone)
-  - [ ] Fläming-Bahnhof Bad Belzig (Railway Station)
-  - [ ] Reißiger-Haus (Historic building)
-- [ ] Create 5 quiz questions for each POI (in English and German)
-- [ ] Define appropriate geofence radius for each POI
+- [x] Gather precise coordinates for all 10 POIs:
+  - [x] Burg Eisenhardt (Castle)
+  - [x] SteinTherme (Thermal Bath)
+  - [x] Marktplatz (Market Square)
+  - [x] Rathaus (Town Hall)
+  - [x] St. Marienkirche (St. Mary's Church)
+  - [x] Bricciuskapelle (Briccius Chapel)
+  - [x] Heimatmuseum (Museum)
+  - [x] Sächsische Postmeilensäule (Saxon Post Milestone)
+  - [x] Fläming-Bahnhof Bad Belzig (Railway Station)
+  - [x] Reißiger-Haus (Historic building)
+- [x] Create 5 quiz questions for each POI (in English and German)
+- [x] Define appropriate geofence radius for each POI
 
 ## 9. UI/UX Design Implementation
 - [x] Design app color scheme using Bad Belzig's green and white colors
