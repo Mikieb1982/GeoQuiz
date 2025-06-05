@@ -1,5 +1,7 @@
 // components/QuizResultsView.js (or a similar path)
 import React from 'react';
+import Confetti from './Confetti';
+import { Button } from './ui/button';
 
 export interface QuizResultsViewProps {
     finalScore?: number;
@@ -42,6 +44,7 @@ const QuizResultsView: React.FC<QuizResultsViewProps> = ({
 
     return (
         <div className="w-full max-w-xl mx-auto bg-white p-6 sm:p-10 rounded-xl shadow-2xl text-center">
+            <Confetti trigger={percentageScore >= 60} />
             <header className="mb-8">
                 <h1 className="text-3xl sm:text-4xl font-bold text-brand-green mb-3">
                     Quiz Complete!
@@ -74,28 +77,19 @@ const QuizResultsView: React.FC<QuizResultsViewProps> = ({
             {/* Action Buttons */}
             <footer className="flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0">
                 {onPlayAgain && (
-                    <button
-                        onClick={onPlayAgain}
-                        className="w-full custom-btn-primary" // Defined in your global styles
-                    >
+                    <Button onClick={onPlayAgain} className="w-full" variant="default">
                         Play Again
-                    </button>
+                    </Button>
                 )}
                 {onGoHome && (
-                     <button
-                        onClick={onGoHome}
-                        className="w-full custom-btn-green-outline" // Defined in your global styles
-                    >
+                    <Button onClick={onGoHome} className="w-full" variant="secondary">
                         Back to Quizzes
-                    </button>
+                    </Button>
                 )}
             </footer>
         </div>
     );
 };
 
-// Ensure custom button classes are defined in your global CSS / Tailwind config
-// .custom-btn-primary { ... }
-// .custom-btn-green-outline { ... }
 
 export default QuizResultsView;

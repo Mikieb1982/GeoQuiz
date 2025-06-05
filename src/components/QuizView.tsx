@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import AnswerOption from './AnswerOption'; // Assuming AnswerOption.js is in the same folder or correct path
+import { Button } from './ui/button';
 
 // Helper function to shuffle answers (optional, but good for quizzes)
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -196,31 +197,28 @@ const QuizView: React.FC<QuizViewProps> = ({
 
             <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0">
                 {!answersChecked ? (
-                    <button
+                    <Button
                         onClick={handleSubmitAnswer}
                         disabled={selectedAnswerId === null}
-                        className="w-full custom-btn-primary disabled:bg-gray-400 disabled:cursor-not-allowed disabled:shadow-none"
+                        className="w-full"
+                        variant="default"
                     >
                         Submit Answer
-                    </button>
+                    </Button>
                 ) : (
-                    <button
+                    <Button
                         onClick={handleNextQuestion}
-                        className="w-full custom-btn-green-outline"
+                        className="w-full"
+                        variant="secondary"
                     >
                         {currentQuestionIndex < questionSet.length - 1 ? 'Next Question' : 'Show Results'}
-                    </button>
+                    </Button>
                 )}
             </div>
         </div>
     );
 };
 
-// Ensure AnswerOption component is defined as previously discussed
-// const AnswerOption = ({ answerText, onSelectAnswer, isSelected, isCorrect, isChecked }) => { ... };
 
-// Ensure custom button classes are defined in your global CSS / Tailwind config
-// .custom-btn-primary { ... }
-// .custom-btn-green-outline { ... }
 
 export default QuizView;

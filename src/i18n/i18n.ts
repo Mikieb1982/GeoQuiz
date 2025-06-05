@@ -21,6 +21,7 @@ i18n
           
           // Hero section
           heroIntro: 'Start your adventure and discover local landmarks with our {{appName}}.',
+          getStarted: 'Get started',
 
           // Welcome page
           welcomeTitle: 'Welcome to {{appName}}!',
@@ -79,6 +80,7 @@ i18n
 
           // Hero section
           heroIntro: 'Beginne dein Abenteuer und entdecke lokale Sehenswürdigkeiten mit unserem {{appName}}.',
+          getStarted: 'Los geht\'s',
 
           // Welcome page
           welcomeTitle: 'Willkommen beim {{appName}}!',

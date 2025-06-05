@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Typically, AppLayout would provide the header/main/footer within the body.
           Let's assume AppLayout is structured to be the content *within* the body.
       */}
-      <body className="font-sans">
+      <body className="font-sans bg-gradient-to-b from-belzig-gray-50 to-white">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AppLayout>
             {children}
