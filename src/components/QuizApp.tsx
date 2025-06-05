@@ -2,6 +2,7 @@
 
 // components/QuizApp.js (or a similar path)
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import QuizSelectionView from './QuizSelectionView';
 import QuizView from './QuizView'; // Assuming QuizView now takes a questionSet prop
 import QuizResultsView from './QuizResultsView';
@@ -77,6 +78,7 @@ const MOCK_QUIZZES_DATA: Record<string, Quiz> = {
 
 
 const QuizApp: React.FC = () => {
+    const { t } = useTranslation();
     const [currentView, setCurrentView] = useState<'selection' | 'quiz' | 'results'>('selection');
     const [selectedQuizData, setSelectedQuizData] = useState<Quiz | null>(null);
     const [quizResults, setQuizResults] = useState<{
@@ -155,7 +157,7 @@ const QuizApp: React.FC = () => {
     }
 
     // Fallback or loading state
-    return <div>Loading GeoQuiz App...</div>;
+    return <div>{t('loading')} {t('appName')}...</div>;
 };
 
 export default QuizApp;
