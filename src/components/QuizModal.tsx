@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Language, Quiz } from '../types';
+import QuizComponent from './QuizComponent';
 
 interface QuizModalProps {
   quiz: Quiz | null;
@@ -24,14 +25,10 @@ const QuizModal: React.FC<QuizModalProps> = ({
     return null;
   }
 
-  const handleQuizFinish = () => {
-    // Calculate score, determine if perfect
-    const score = 85; // Example score
-    const perfect = false; // Example perfect status
-    onComplete(quiz.poiId, score, perfect); // Call the onComplete prop from Layout
-    onClose(); // Close the modal after completion
+  const handleQuizFinish = (score: number, perfect: boolean) => {
+    onComplete(quiz.poiId, score, perfect);
+    onClose();
   };
-  // --- ---
 
   return (
     // 1. Full screen overlay: fixed position, covers everything, high z-index
@@ -54,34 +51,16 @@ const QuizModal: React.FC<QuizModalProps> = ({
           </svg>
         </button>
 
-        {/* 4. Quiz Content Area */}
         <div className="quiz-content">
-           {/* Quiz Title */}
           <h3 className="font-heading text-xl md:text-2xl font-bold text-belzig-gray-900 mb-4">
-            {quiz.title[language]} {/* Assuming title exists on quiz object */}
+            {quiz.title[language]}
           </h3>
-
-          {/* TODO: Add your actual quiz questions, answers, buttons here */}
-          <p className="text-belzig-gray-700 mb-4">
-            Question {quiz.questions[0].text[language]} {/* Example access */}
-          </p>
-          {/* Example Answer Buttons */}
-          <div className="space-y-3">
-             {quiz.questions[0].options[language].map((option: string, index: number) => (
-                <button key={index} className="block w-full text-left p-3 bg-belzig-gray-50 hover:bg-belzig-gray-100 rounded-lg border border-belzig-gray-200 transition-colors">
-                   {option}
-                </button>
-             ))}
-          </div>
-
-          {/* Example button to simulate finishing */}
-          <button
-            onClick={handleQuizFinish}
-            className="mt-6 w-full bg-belzig-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-belzig-green-700 transition-colors shadow-button"
-          >
-            {language === 'en' ? 'Submit' : 'Absenden'}
-          </button>
-
+          <QuizComponent
+            quiz={quiz}
+            language={language}
+            onComplete={handleQuizFinish}
+            onClose={onClose}
+          />
         </div>
       </div>
     </div>
