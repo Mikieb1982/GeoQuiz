@@ -1,4 +1,5 @@
  # GeoQuiz 🌍❓
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3c43bc37-f329-4a70-af1b-74e0091f5bbe/deploy-status)](https://app.netlify.com/projects/bbgeoquiz/deploys)
 
 A fun and interactive quiz game to test your geographical knowledge, themed around Bad Belzig!
 
