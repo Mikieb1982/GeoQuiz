@@ -14,8 +14,8 @@ const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat
 // Metadata for the page (replaces <Head> from 'next/head' in Pages Router)
 // You can export this directly from your layout.tsx or page.tsx files.
 export const metadata = {
-  title: 'GeoQuiz - Test Your Geography Knowledge!',
-  description: 'A fun and interactive quiz game to test your geographical knowledge, themed around Bad Belzig and more!',
+  title: 'Bad Belzig Abenteuer Geo Quiz - Explore & Learn!',
+  description: 'A fun and interactive location-based quiz game to discover Bad Belzig and earn digital badges.',
   // You can add more metadata here like icons, openGraph, etc.
   // icons: {
   //   icon: '/favicon.ico', // Example

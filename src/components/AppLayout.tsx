@@ -1,6 +1,7 @@
 // components/AppLayout.js (or a similar path)
 import React from 'react';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 export interface AppLayoutProps {
     children: React.ReactNode;
@@ -9,6 +10,7 @@ export interface AppLayoutProps {
 // Props for this component:
 // - children: The content to be rendered within the main layout area.
 const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
+    const { t } = useTranslation();
     return (
         <div className="min-h-screen flex flex-col font-sans bg-bg-light text-text-dark antialiased">
             {/* Header */}
@@ -18,7 +20,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                         {/* Logo/Title */}
                         <div className="flex items-center">
                             <Link href="/" className="text-2xl sm:text-3xl font-bold text-text-light hover:opacity-90 transition-opacity">
-                                GeoQuiz <span className="text-xl">🌍</span>
+                                {t('appName')} <span className="text-xl">🌍</span>
                             </Link>
                         </div>
 
@@ -52,7 +54,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
             <footer className="bg-gray-800 text-gray-300 py-8 text-center">
                 <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-sm">
-                        &copy; {new Date().getFullYear()} GeoQuiz by Mikieb1982. All rights reserved.
+                        &copy; {new Date().getFullYear()} {t('appName')} by Mikieb1982. All rights reserved.
                     </p>
                     <p className="text-xs mt-1">
                         Powered by React & Tailwind CSS.

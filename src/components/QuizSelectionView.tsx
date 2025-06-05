@@ -1,5 +1,6 @@
 // components/QuizSelectionView.js (or a similar path)
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export interface QuizInfo {
     id: string;
@@ -18,11 +19,12 @@ export interface QuizSelectionViewProps {
 // - onSelectQuiz: A function that takes the quizId and initiates the selected quiz.
 
 const QuizSelectionView: React.FC<QuizSelectionViewProps> = ({ quizzes = [], onSelectQuiz }) => {
+    const { t } = useTranslation();
     if (!quizzes || quizzes.length === 0) {
         return (
             <div className="w-full max-w-3xl mx-auto p-6 sm:p-10 text-center">
                 <h1 className="text-3xl sm:text-4xl font-bold text-brand-green mb-3">
-                    Welcome to GeoQuiz!
+                    {t('welcomeTitle')}
                 </h1>
                 <p className="text-lg text-text-muted mb-6">
                     No quizzes available at the moment. Please check back later.
@@ -35,10 +37,10 @@ const QuizSelectionView: React.FC<QuizSelectionViewProps> = ({ quizzes = [], onS
         <div className="w-full max-w-3xl mx-auto p-6 sm:p-10">
             <header className="mb-10 text-center">
                 <h1 className="text-4xl sm:text-5xl font-bold text-brand-green mb-3">
-                    Welcome to GeoQuiz!
+                    {t('welcomeTitle')}
                 </h1>
                 <p className="text-lg text-text-muted">
-                    Choose a quiz below to test your geographical knowledge.
+                    {t('welcomeSubtitle')}
                 </p>
             </header>
 

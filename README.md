@@ -1,7 +1,7 @@
- # GeoQuiz 🌍❓
+# Bad Belzig Abenteuer Geo Quiz 🌍❓
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3c43bc37-f329-4a70-af1b-74e0091f5bbe/deploy-status)](https://app.netlify.com/projects/bbgeoquiz/deploys)
 
-A fun and interactive quiz game to test your geographical knowledge, themed around Bad Belzig!
+A fun and interactive location-based quiz that guides you through Bad Belzig.
 
 ## 🌟 Features
 
@@ -67,7 +67,7 @@ then push to the `main` branch to automatically build and deploy the worker.
 
 ### Static Export for GitHub Pages
 
-GeoQuiz can be published as a static site using GitHub Pages:
+Bad Belzig Abenteuer Geo Quiz can be published as a static site using GitHub Pages:
 
 1. Run the export script:
    ```bash
@@ -101,7 +101,7 @@ uses this configuration automatically.
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you have suggestions or want to improve GeoQuiz,
+Contributions are welcome! If you have suggestions or want to improve Bad Belzig Abenteuer Geo Quiz,
 please feel free to:
 
 1.  Fork the Project

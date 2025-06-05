@@ -19,6 +19,13 @@ i18n
           next: 'Next',
           finish: 'Finish',
           
+          // Hero section
+          heroIntro: 'Start your adventure and discover local landmarks with our {{appName}}.',
+
+          // Welcome page
+          welcomeTitle: 'Welcome to {{appName}}!',
+          welcomeSubtitle: 'Choose a quiz below to test your geographical knowledge.',
+          
           // Map
           yourLocation: 'Your location',
           getCloser: 'Get closer to unlock the quiz!',
@@ -69,6 +76,13 @@ i18n
           back: 'Zurück',
           next: 'Weiter',
           finish: 'Beenden',
+
+          // Hero section
+          heroIntro: 'Beginne dein Abenteuer und entdecke lokale Sehenswürdigkeiten mit unserem {{appName}}.',
+
+          // Welcome page
+          welcomeTitle: 'Willkommen beim {{appName}}!',
+          welcomeSubtitle: 'Wähle unten ein Quiz aus, um dein geografisches Wissen zu testen.',
           
           // Map
           yourLocation: 'Dein Standort',

@@ -1,11 +1,13 @@
 'use client';
 
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Hero component showcasing Bad Belzig with a call to action.
  */
 export default function Hero() {
+  const { t } = useTranslation();
   return (
     <div className="relative h-64 sm:h-80 md:h-96 mb-8">
       <Image
@@ -20,7 +22,9 @@ export default function Hero() {
           Explore Bad Belzig
         </h2>
         <p className="text-lg sm:text-xl max-w-xl drop-shadow-md">
-          Start your adventure and discover local landmarks with our GeoQuiz.
+          {t('heroIntro', {
+            appName: t('appName'),
+          })}
         </p>
       </div>
     </div>
