@@ -4,7 +4,7 @@
 
 import AppLayout from '../components/AppLayout'; // Adjust path as per your project structure
 import './globals.css';
-import { ThemeProvider } from 'next-themes';
+import { Providers } from '../components/Providers';
 
 import { Inter, Montserrat } from 'next/font/google';
 
@@ -38,11 +38,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Let's assume AppLayout is structured to be the content *within* the body.
       */}
       <body className="font-sans bg-gradient-to-b from-belzig-gray-50 to-white">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <Providers>
           <AppLayout>
             {children}
           </AppLayout>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

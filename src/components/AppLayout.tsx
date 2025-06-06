@@ -1,3 +1,5 @@
+"use client";
+
 // components/AppLayout.js (or a similar path)
 import React from 'react';
 import Link from 'next/link';
