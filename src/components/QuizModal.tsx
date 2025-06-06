@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Language, Quiz } from '../types';
+import { pois } from '../data/pois';
 import QuizComponent from './QuizComponent';
 
 interface QuizModalProps {
@@ -53,7 +54,7 @@ const QuizModal: React.FC<QuizModalProps> = ({
 
         <div className="quiz-content">
           <h3 className="font-heading text-xl md:text-2xl font-bold text-belzig-gray-900 mb-4">
-            {quiz.title[language]}
+            {pois.find(p => p.id === quiz.poiId)?.names[language] ?? ''}
           </h3>
           <QuizComponent
             quiz={quiz}
